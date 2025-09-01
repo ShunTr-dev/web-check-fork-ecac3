@@ -143,19 +143,19 @@ app.get(API_DIR, async (req, res) => {
 });
 
 // Skip the marketing homepage, for self-hosted users
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   if (req.path === '/' && process.env.BOSS_SERVER !== 'true' && !process.env.DISABLE_GUI) {
     req.url = '/check';
   }
   next();
-});
+}); */
 
 // Serve up the GUI - if build dir exists, and GUI feature enabled
-if (process.env.DISABLE_GUI && process.env.DISABLE_GUI !== 'false') {
+//if (process.env.DISABLE_GUI && process.env.DISABLE_GUI !== 'false') {
   app.get('/', async (req, res) => {
     renderPlaceholderPage(res, 'disabledGui');
   });
-} else if (!fs.existsSync(guiPath)) {
+/* }  else if (!fs.existsSync(guiPath)) {
   app.get('/', async (req, res) => {
     renderPlaceholderPage(res, 'notCompiled');
   });
@@ -169,7 +169,7 @@ if (process.env.DISABLE_GUI && process.env.DISABLE_GUI !== 'false') {
       renderPlaceholderPage(res, 'notCompiledSsrHandler', err.message);
     });
   });  
-}
+} */
 
 // Handle SPA routing
 app.use(historyApiFallback({
