@@ -151,11 +151,11 @@ app.get(API_DIR, async (req, res) => {
 }); */
 
 // Serve up the GUI - if build dir exists, and GUI feature enabled
-//if (process.env.DISABLE_GUI && process.env.DISABLE_GUI !== 'false') {
+/* if (process.env.DISABLE_GUI && process.env.DISABLE_GUI !== 'false') {
   app.get('/', async (req, res) => {
     renderPlaceholderPage(res, 'disabledGui');
   });
-/* }  else if (!fs.existsSync(guiPath)) {
+ }  else if (!fs.existsSync(guiPath)) {
   app.get('/', async (req, res) => {
     renderPlaceholderPage(res, 'notCompiled');
   });
@@ -169,15 +169,15 @@ app.get(API_DIR, async (req, res) => {
       renderPlaceholderPage(res, 'notCompiledSsrHandler', err.message);
     });
   });  
-} */
+}  */
 
 // Handle SPA routing
-app.use(historyApiFallback({
+/* app.use(historyApiFallback({
   rewrites: [
     { from: new RegExp(`^${API_DIR}/.*$`), to: (context) => context.parsedUrl.path },
     { from: /^.*$/, to: '/index.html' }
   ]
-}));
+})); */
 
 // Anything left unhandled (which isn't an API endpoint), return a 404
 app.use((req, res, next) => {
