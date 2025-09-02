@@ -37,5 +37,6 @@ package = "netlify-plugin-chromium"
 [[headers]]
   for = "/*"
   [headers.values]
+  Access-Control-Allow-Origin = "*"
   # Uncomment to enable Netlify user control. Requires premium plan.
   # Basic-Auth = "someuser:somepassword anotheruser:anotherpassword"
